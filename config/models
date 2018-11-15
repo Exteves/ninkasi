@@ -1,0 +1,65 @@
+FlavorProfile
+    name            Text
+    UniqueProfile   name
+
+Color
+    name            Text Maybe
+    srm             Int Maybe
+    transparency    Text
+
+BeerHead
+    time            Text
+    color           ColorId
+    size            Text
+
+Aroma
+    name            Text
+    UniqueAroma     name
+
+Packing
+    name            Text
+    volume          Double
+
+Style
+    name            Text
+    UniqueStyle     name
+
+Region
+    name            Text
+    province        ProvinceId
+    UniqueRegion    name
+
+Province
+    name            Text
+    country         CountryId
+    UniqueProvince  name
+
+Country
+    name            Text
+    UniqueCountry   name
+
+Beer
+    name            Text
+    brewingDate     Day
+    brewery         Text
+    rating          Int
+    price           Double
+    celsiusDegrees  Double Maybe
+    regionOrigin    RegionId Maybe
+    countryOrigin   CountryId Maybe
+    abv             Double Maybe
+    abu             Double Maybe
+    color           ColorId
+    packing         PackingId
+    style           StyleId
+    aroma           AromaId
+    beerHead        BeerHeadId
+    flavor          FlavorProfileId
+    UniqueBeer      name
+
+Tasting
+    location        RegionId
+    notes           Text
+    beer            BeerId
+
+-- DID NOT DEFINED CITY CAUSE BEER CAN BE MADE IN VILLAGES OR PER REGIONS
