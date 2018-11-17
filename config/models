@@ -1,44 +1,44 @@
-FlavorProfile
+Flavor   json
     name            Text
-    UniqueProfile   name
+    UniqueFlavor   name
 
-Color
+Color           json
     name            Text Maybe
     srm             Int Maybe
     transparency    Text
 
-BeerHead
+BeerHead        json
     time            Text
     color           ColorId
     size            Text
 
-Aroma
+Aroma           json
     name            Text
     UniqueAroma     name
 
-Packing
+Packing         json
     name            Text
     volume          Double
 
-Style
+Style           json
     name            Text
     UniqueStyle     name
 
-Region
+Region          json
     name            Text
     province        ProvinceId
     UniqueRegion    name
 
-Province
+Province        json
     name            Text
     country         CountryId
     UniqueProvince  name
 
-Country
+Country         json
     name            Text
     UniqueCountry   name
 
-Beer
+Beer            json
     name            Text
     brewingDate     Day
     brewery         Text
@@ -54,10 +54,10 @@ Beer
     style           StyleId
     aroma           AromaId
     beerHead        BeerHeadId
-    flavor          FlavorProfileId
+    flavor          FlavorId
     UniqueBeer      name
 
-Tasting
+Tasting         json
     location        RegionId
     notes           Text
     beer            BeerId

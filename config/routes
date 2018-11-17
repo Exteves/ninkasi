@@ -1,6 +1,23 @@
-/static StaticR Static appStatic
+/static             StaticR     Static      appStatic
 
-/favicon.ico FaviconR GET
-/robots.txt RobotsR GET
+/beer               BeerR       OPTIONS     POST
 
-/ HomeR GET 
+/tasting            TastingR    OPTIONS     POST
+
+/style              StyleR      OPTIONS     POST
+
+/flavor             FlavorR     OPTIONS     POST
+
+/color              ColorR      OPTIONS     POST
+
+/beerhead           BeerHeadR   OPTIONS     POST
+
+/aroma              AromaR      OPTIONS     POST
+
+/packing            PackingR    OPTIONS     POST
+
+/region             RegionR     OPTIONS     POST
+
+/province           ProvinceR   OPTIONS     POST
+
+/country            CountryR    OPTIONS     POST
