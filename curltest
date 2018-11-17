@@ -1,0 +1,5 @@
+sudo fuser -k 8080/tcp
+
+PACKING
+
+curl -X POST localhost:8080/packing -d '{"name" : "garrafa", "volume" : 1000.00}' -H "accept: application/json"

@@ -6,7 +6,6 @@
 module Handler.Packing where
 
 import Import
-import Data.Time
 import Handler.Funcs as F
 
 optionsPackingR :: Handler ()
