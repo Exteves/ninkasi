@@ -30,7 +30,28 @@ postLoginnR = do
     case maybeUsr of
         Just (Entity uid usr) -> do
             newHashUser <- setPassword (usrEmail usr) usr
-            runDB $ update uid [usrToken =. (usrToken newHashUser)]
+            runDB $ update uid [UsrToken =. (usrToken newHashUser)]
             sendStatusJSON ok200 (object ["resp" .= (usrToken newHashUser) ])
         Nothing -> 
+            sendStatusJSON status404 (object ["resp" .= ("Usuario nao cadastrado"::Text)] )
+
+postRegisterR :: Handler Value
+postRegisterR = do
+    anyOriginIn [ F.OPTIONS, F.POST ]
+    usu <- requireJsonBody :: Handler Usr
+    hashUser <- setPassword (usrEmail usu) usu
+    usrId <- runDB $ insert hashUser
+    sendStatusJSON created201 (object ["resp" .= (usrToken hashUser)])
+
+postLogouttR :: Handler Value
+postLogouttR = do 
+    token <- getTokenHeader
+    anyOriginIn [ F.OPTIONS, F.POST ]
+    maybeUser <- runDB $ selectFirst [UsrToken ==. token] []
+    case maybeUser of
+        Just (Entity uid usr) -> do
+            newHashUser <- setPassword (usrEmail usr) usr
+            runDB $ update uid [UsrToken =. (usrToken newHashUser)]
+            sendStatusJSON ok200 (object ["resp" .= ("usuario deslogado"::Text)])
+        _ -> 
             sendStatusJSON status404 (object ["resp" .= ("Usuário não cadastrado"::Text)] )
