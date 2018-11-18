@@ -21,3 +21,9 @@
 /province           ProvinceR   OPTIONS     POST
 
 /country            CountryR    OPTIONS     POST
+
+/login              LoginnR      OPTIONS     POST
+
+/register           RegisterR   OPTIONS     POST
+
+/logout             LogouttR     OPTIONS     POST

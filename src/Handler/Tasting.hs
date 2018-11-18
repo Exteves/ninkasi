@@ -2,11 +2,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
-
 module Handler.Tasting where
 
 import Import
 import Handler.Funcs as F
+
+-- OPTIONS --
 
 optionsTastingR :: Handler ()
 optionsTastingR = F.anyOriginIn [ F.OPTIONS, F.POST ]

@@ -1,42 +1,51 @@
 Flavor   json
     name            Text
     UniqueFlavor   name
+    deriving Show
 
 Color           json
     name            Text Maybe
     srm             Int Maybe
     transparency    Text
+    deriving Show
 
 BeerHead        json
     time            Text
     color           ColorId
     size            Text
+    deriving Show
 
 Aroma           json
     name            Text
     UniqueAroma     name
+    deriving Show
 
 Packing         json
     name            Text
     volume          Double
+    deriving Show
 
 Style           json
     name            Text
     UniqueStyle     name
+    deriving Show
 
 Region          json
     name            Text
     province        ProvinceId
     UniqueRegion    name
+    deriving Show
 
 Province        json
     name            Text
     country         CountryId
     UniqueProvince  name
+    deriving Show
 
 Country         json
     name            Text
     UniqueCountry   name
+    deriving Show
 
 Beer            json
     name            Text
@@ -56,10 +65,22 @@ Beer            json
     beerHead        BeerHeadId
     flavor          FlavorId
     UniqueBeer      name
+    deriving Show
+
+Usr             json
+    name            Text
+    email           Text
+    passwd          Text
+    token           Text
+    UniqueEmail     email
+    UsrLogin        email passwd
+    deriving Show
 
 Tasting         json
     location        RegionId
     notes           Text
     beer            BeerId
+    usr             UsrId
+    deriving Show
 
 -- DID NOT DEFINED CITY CAUSE BEER CAN BE MADE IN VILLAGES OR PER REGIONS
