@@ -1,6 +1,6 @@
 Flavor   json
     name            Text
-    UniqueFlavor   name
+    UniqueFlavor    name
     deriving Show
 
 Color           json
@@ -30,18 +30,6 @@ Style           json
     UniqueStyle     name
     deriving Show
 
-Region          json
-    name            Text
-    province        ProvinceId
-    UniqueRegion    name
-    deriving Show
-
-Province        json
-    name            Text
-    country         CountryId
-    UniqueProvince  name
-    deriving Show
-
 Country         json
     name            Text
     UniqueCountry   name
@@ -51,13 +39,9 @@ Beer            json
     name            Text
     brewingDate     Day
     brewery         Text
-    rating          Int
-    price           Double
-    celsiusDegrees  Double Maybe
-    regionOrigin    RegionId Maybe
-    countryOrigin   CountryId Maybe
-    abv             Double Maybe
-    abu             Double Maybe
+    price           Double Maybe
+    countryOrigin   CountryId
+    alcVol          Double
     color           ColorId
     packing         PackingId
     style           StyleId
@@ -77,10 +61,18 @@ Usr             json
     deriving Show
 
 Tasting         json
-    location        RegionId
+    location        CountryId
     notes           Text
+    beerDegrees     Double Maybe
+    rating          Int
     beer            BeerId
     usr             UsrId
+    deriving Show
+
+Has             json
+    emailtaste  Text Maybe
+    usrId       UsrId
+    tastingId   TastingId
     deriving Show
 
 -- DID NOT DEFINED CITY CAUSE BEER CAN BE MADE IN VILLAGES OR PER REGIONS

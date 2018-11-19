@@ -6,7 +6,6 @@ module Handler.Usr where
 
 import Import
 import Handler.Funcs as F
-import Data.Text as T
 import Yesod.Auth.HashDB (setPassword)
 
 -- OPTIONS --

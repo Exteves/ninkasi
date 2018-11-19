@@ -1,29 +1,34 @@
-/static             StaticR     Static      appStatic
+/static StaticR Static  appStatic
 
-/beer               BeerR       OPTIONS     POST
+/beer                                   BeerR                       OPTIONS     POST    GET
+/beer/name/#Text                        BeerByNameR                 OPTIONS     GET
+/beer/brewingdate/#Day                  BeerByDayR                  OPTIONS     GET
+/beer/brewery/#Text                     BeerByBreweryR              OPTIONS     GET
+/beer/origin/#CountryId                 BeerByOriginR               OPTIONS     GET
+/beer/style/#StyleId                    BeerByStyleIdR              OPTIONS     GET
+/beer/aroma/#AromaId                    BeerByAromaIdR              OPTIONS     GET
+/beer/flavor/#FlavorId                  BeerByFlavorIdR             OPTIONS     GET
+/beer/color/#ColorId                    BeerByColorIdR              OPTIONS     GET
 
-/tasting            TastingR    OPTIONS     POST
+/tasting                                TastingR                    OPTIONS     POST
+/tasting/user                           TastingByUserR              OPTIONS     GET
 
-/style              StyleR      OPTIONS     POST
+/style                                  StyleR                      OPTIONS     POST
 
-/flavor             FlavorR     OPTIONS     POST
+/flavor                                 FlavorR                     OPTIONS     POST
 
-/color              ColorR      OPTIONS     POST
+/color                                  ColorR                      OPTIONS     POST
 
-/beerhead           BeerHeadR   OPTIONS     POST
+/beerhead                               BeerHeadR                   OPTIONS     POST
 
-/aroma              AromaR      OPTIONS     POST
+/aroma                                  AromaR                      OPTIONS     POST
 
-/packing            PackingR    OPTIONS     POST
+/packing                                PackingR                    OPTIONS     POST
 
-/region             RegionR     OPTIONS     POST
+/country                                CountryR                    OPTIONS     POST
 
-/province           ProvinceR   OPTIONS     POST
+/login                                  LoginnR                     OPTIONS     POST
 
-/country            CountryR    OPTIONS     POST
+/register                               RegisterR                   OPTIONS     POST
 
-/login              LoginnR      OPTIONS     POST
-
-/register           RegisterR   OPTIONS     POST
-
-/logout             LogouttR     OPTIONS     POST
+/logout                                 LogouttR                    OPTIONS     POST

@@ -3,3 +3,59 @@ sudo fuser -k 8080/tcp
 PACKING
 
 curl -X POST localhost:8080/packing -d '{"name" : "garrafa", "volume" : 1000.00}' -H "accept: application/json"
+
+
+
+
+
+/static StaticR Static  appStatic
+
+/beer                                   BeerR                       OPTIONS     POST    GET
+!/beer/abv/#Double                       BeerByAbvR                  OPTIONS     GET
+!/beer/abu/#Double                       BeerByAbuR                  OPTIONS     GET
+!/beer/packing/#PackingId                BeerByPackingIdR            OPTIONS     GET
+!/beer/beerhead/#BeerHeadId              BeerByBeerHeadIdR           OPTIONS     GET
+
+/tasting                                TastingR                    OPTIONS     POST
+!/tasting/user                           TastingByUserR              OPTIONS     GET
+!/tasting/beer/#BeerId                   TastingByBeerIdR            OPTIONS     GET
+!/tasting/location/#TastingId/#RegionId  UpdateLocationR             OPTIONS     PATCH
+!/tasting/notes/#TastingId/#Text         UpdateNotesR                OPTIONS     PATCH
+!/tasting/beer/#TastingId/#BeerId        UpdateBeerR                 OPTIONS     PATCH
+!/tasting/beer/degrees/#Double           UpdateDegreesR              OPTIONS     PATCH
+!/tasting/beer/rating/#Int               UpdateRatingR               OPTIONS     GET     PATCH
+
+/style                                  StyleR                      OPTIONS     POST
+!/style/name/#StyleId/#Text              UpdateStyleNameR            OPTIONS     PATCH
+
+/flavor                                 FlavorR                     OPTIONS     POST
+!/flavor/name/#FlavorId/#Text            UpdateFlavorNameR           OPTIONS     PATCH
+
+/color                                  ColorR                      OPTIONS     POST
+!/color/name/#ColorId/#Text              UpdateColorNameR            OPTIONS     PATCH
+!/color/srm/#ColorId/#Int                UpdateColorSrmR             OPTIONS     PATCH
+!/color/transparency/#ColorId/#Int       UpdateColorTransparencyR    OPTIONS     PATCH
+
+/beerhead                               BeerHeadR                   OPTIONS     POST
+!/beerhead/time/#BeerHeadId/#Text        UpdateBeerHeadTimeR         OPTIONS     PATCH
+!/beerhead/color/#BeerHeadId/#ColorId    UpdateBeerHeadColorIdR      OPTIONS     PATCH
+!/beerhead/size/#BeerHeadId/#Text        UpdateBeerHeadSizeR         OPTIONS     PATCH
+
+/aroma                                  AromaR                      OPTIONS     POST
+!/aroma/name/#AromaId/#Text              UpdateAromaNameR            OPTIONS     PATCH
+
+/packing                                PackingR                    OPTIONS     POST
+!/packing/name/#PackingId/#Text          UpdatePackingNameR          OPTIONS     PATCH
+!/packing/volume/#PackingId/#Double      UpdatePackingVolumeR        OPTIONS     PATCH
+
+/region                                 RegionR                     OPTIONS     POST
+
+/province                               ProvinceR                   OPTIONS     POST
+
+/country                                CountryR                    OPTIONS     POST
+
+/login                                  LoginnR                     OPTIONS     POST
+
+/register                               RegisterR                   OPTIONS     POST
+
+/logout                                 LogouttR                    OPTIONS     POST

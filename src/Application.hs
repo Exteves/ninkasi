@@ -44,10 +44,9 @@ import Handler.Color
 import Handler.BeerHead
 import Handler.Aroma
 import Handler.Packing
-import Handler.Region
-import Handler.Province
 import Handler.Country
 import Handler.Usr
+import Handler.Has
 
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the

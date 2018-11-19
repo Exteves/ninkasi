@@ -15,9 +15,9 @@ import qualified Data.ByteString.Char8 as BS
 
 data HttpMethod = OPTIONS | GET | POST | PUT | PATCH | DELETE deriving Show
 
--- (%=.) :: EntityField record Text -> Text -> Filter record
--- (%=.) campo valor = Filter campo ( Left $ T.concat ["%",valor,"%"] )
---                                  ( BackendSpecificFilter "ILIKE" )
+(%=.) :: EntityField record Text -> Text -> Filter record
+(%=.) campo valor = Filter campo ( Left $ T.concat ["%",valor,"%"] )
+                                 ( BackendSpecificFilter "ILIKE" )
 
 anyOriginIn :: [HttpMethod] -> Handler ()
 anyOriginIn methods = do
