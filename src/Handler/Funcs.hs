@@ -21,8 +21,9 @@ data HttpMethod = OPTIONS | GET | POST | PUT | PATCH | DELETE deriving Show
 
 anyOriginIn :: [HttpMethod] -> Handler ()
 anyOriginIn methods = do
-    addHeader "Access-Control-Allow-Origin" "*"
-    addHeader "Access-Control-Allow-Methods" $ T.intercalate ", " $ P.map (T.pack.show) methods
+    addHeader (T.pack "Access-Control-Allow-Origin") (T.pack "*")
+    addHeader (T.pack "Access-Control-Allow-Methods") $ T.intercalate (T.pack ", ") $ P.map T.pack $ P.map P.show methods
+    addHeader (T.pack "Access-Control-Allow-Headers") (T.pack "*")
 
 getTokenHeader :: Handler Text
 getTokenHeader = do

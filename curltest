@@ -4,9 +4,7 @@ PACKING
 
 curl -X POST localhost:8080/packing -d '{"name" : "garrafa", "volume" : 1000.00}' -H "accept: application/json"
 
-
-
-
+curl -X POST localhost:8080/register -d '{"name" : "renan", "email" : "renan@hotmail.com", "passwd" : "123456", "token" : ""}' -H "accept: application/json"
 
 /static StaticR Static  appStatic
 
