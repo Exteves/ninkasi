@@ -14,9 +14,6 @@ optionsBeerR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 optionsBeerByNameR :: Text -> Handler ()
 optionsBeerByNameR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
 
-optionsBeerByDayR :: Day -> Handler ()
-optionsBeerByDayR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
-
 optionsBeerByBreweryR :: Text -> Handler ()
 optionsBeerByBreweryR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
 
@@ -56,13 +53,6 @@ getBeerByNameR :: Text -> Handler Value
 getBeerByNameR beerName = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     beerList    <-  runDB $ selectList [ BeerName %=. beerName ] [ Asc BeerName ]
-    beerListM   <-  return $ map entityKey beerList
-    sendStatusJSON ok200 $ object [ "resp" .= beerListM ]
-
-getBeerByDayR :: Day -> Handler Value
-getBeerByDayR brewingDate = do
-    F.anyOriginIn [ F.OPTIONS, F.GET ]
-    beerList    <-  runDB $ selectList [ BeerBrewingDate ==. brewingDate ] [ Asc BeerBrewingDate ]
     beerListM   <-  return $ map entityKey beerList
     sendStatusJSON ok200 $ object [ "resp" .= beerListM ]
 

@@ -4,15 +4,9 @@ Flavor   json
     deriving Show
 
 Color           json
-    name            Text Maybe
-    srm             Int Maybe
-    transparency    Text
-    deriving Show
-
-BeerHead        json
-    time            Text
-    color           ColorId
-    size            Text
+    srm             Int
+    name            Text
+    UniqueColor     srm
     deriving Show
 
 Aroma           json
@@ -20,9 +14,11 @@ Aroma           json
     UniqueAroma     name
     deriving Show
 
+-- PACKING DEFINE O RECIPIENTE UTILIZADO PARA DEGUSTAR A CERVEJA
+
 Packing         json
     name            Text
-    volume          Double
+    UniquePacking   name
     deriving Show
 
 Style           json
@@ -37,16 +33,16 @@ Country         json
 
 Beer            json
     name            Text
-    brewingDate     Day
     brewery         Text
     price           Double Maybe
     countryOrigin   CountryId
-    alcVol          Double
+    abv             Double
+    ibu             Double
     color           ColorId
     packing         PackingId
     style           StyleId
     aroma           AromaId
-    beerHead        BeerHeadId
+    beerHead        Text
     flavor          FlavorId
     UniqueBeer      name
     deriving Show

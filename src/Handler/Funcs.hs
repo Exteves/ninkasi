@@ -28,6 +28,6 @@ anyOriginIn methods = do
 getTokenHeader :: Handler Text
 getTokenHeader = do
     a <- waiRequest
-    listaHeader <- return $ NW.requestHeaders a
-    return $ T.pack $ BS.unpack $ M.fromJust $ P.lookup "key" listaHeader
+    tastingHeader <- return $ NW.requestHeaders a
+    return $ T.pack $ BS.unpack $ M.fromJust $ P.lookup "key" tastingHeader
     

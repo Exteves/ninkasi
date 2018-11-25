@@ -41,7 +41,6 @@ import Handler.Tasting
 import Handler.Style
 import Handler.Flavor
 import Handler.Color
-import Handler.BeerHead
 import Handler.Aroma
 import Handler.Packing
 import Handler.Country

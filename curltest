@@ -1,14 +1,33 @@
 sudo fuser -k 8080/tcp
 
-PACKING
-
-curl -X POST localhost:8080/packing -d '{"name" : "garrafa", "volume" : 1000.00}' -H "accept: application/json"
-
 curl -X POST localhost:8080/register -d '{"name" : "renan", "email" : "renan@hotmail.com", "passwd" : "123456", "token" : ""}' -H "accept: application/json"
+
+curl -X POST localhost:8080/login -d '{"email" : "renan@hotmail.com", "passwd" : "123456"}' -H "accept: application/json"
+
+curl -X POST localhost:8080/packing -d '{"name" : "garrafa"}' -H "accept: application/json"
+
+{"name" : "lata"}, {"name" : "barril"}, {"name" : "caldereta"}, {"name" : "Copo weizen"}
+
+curl -X POST localhost:8080/country -d '{"name" : "Alemanha"}' -H "accept: application/json"
+
+{"name" : "Irlanda"}, {"name": "Brasil"}
+
+curl -X POST localhost:8080/color -d '{"srm" : 12, "name" : "Medium Amber"}' -H "accept: application/json"
+
+curl -X POST localhost:8080/style -d '{"name" : "Honey Wheat Ale"}' -H "accept: application/json"
+
+curl -X POST localhost:8080/aroma -d '{"name" : "Mel/Malte"}' -H "accept: application/json"
+
+curl -X POST localhost:8080/flavor -d '{"name" : "adocicada"}' -H "accept: application/json"
+
+curl -X POST localhost:8080/beer -d '{"name" : "Cerveja Colorado Appia", "brewery" : "colorado", "price" : 11.90, "countryOrigin" : 1, "abv" : 5.5, "ibu" : 10.0,"color" : 1, "packing" : 1, "style" : 1, "aroma" : 1, "beerHead" : "","flavor" : 1}' -H "accept: application/json"
+
+curl -X POST localhost:8080/tasting -d '{"location" : 1, "notes" : "cerveja muito boa", "beerDegrees" : -11.5, "rating" : "5", "beer" : 1, "usr" : 1}'
 
 /static StaticR Static  appStatic
 
-/beer                                   BeerR                       OPTIONS     POST    GET
+/beer 
+!/beer/brewingdate/#Day                  BeerByDayR                  OPTIONS     GET                                  BeerR                       OPTIONS     POST    GET
 !/beer/abv/#Double                       BeerByAbvR                  OPTIONS     GET
 !/beer/abu/#Double                       BeerByAbuR                  OPTIONS     GET
 !/beer/packing/#PackingId                BeerByPackingIdR            OPTIONS     GET

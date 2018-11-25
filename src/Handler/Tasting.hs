@@ -23,9 +23,15 @@ optionsTastingByBeerIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
 postTastingR :: Handler Value
 postTastingR = do
     anyOriginIn [ F.OPTIONS, F.POST ]
-    tasting    <-  requireJsonBody :: Handler Tasting
-    tastingId  <-  runDB $ insert tasting
-    sendStatusJSON created201 $ object [ "resp" .= tastingId ]
+    token       <- getTokenHeader
+    maybeUsr   <- runDB $ selectFirst [UsrToken ==. token] []
+    case maybeUsr of
+        Just (Entity uid usr) -> do
+            tasting <-  requireJsonBody :: Handler Tasting
+            tid     <-  runDB $ insert tasting
+            pid     <-  runDB $ insert (Has Nothing uid tid)
+            sendStatusJSON created201 $ object ["resp" .= tid]
+        _ -> sendStatusJSON forbidden403 $ object ["resp" .= ("acao proibida"::Text)]
 
 getTastingByUserR :: Handler Value
 getTastingByUserR = do

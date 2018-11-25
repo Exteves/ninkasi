@@ -2,7 +2,6 @@
 
 /beer                                   BeerR                       OPTIONS     POST    GET
 /beer/name/#Text                        BeerByNameR                 OPTIONS     GET
-/beer/brewingdate/#Day                  BeerByDayR                  OPTIONS     GET
 /beer/brewery/#Text                     BeerByBreweryR              OPTIONS     GET
 /beer/origin/#CountryId                 BeerByOriginR               OPTIONS     GET
 /beer/style/#StyleId                    BeerByStyleIdR              OPTIONS     GET
@@ -19,8 +18,6 @@
 /flavor                                 FlavorR                     OPTIONS     POST
 
 /color                                  ColorR                      OPTIONS     POST
-
-/beerhead                               BeerHeadR                   OPTIONS     POST
 
 /aroma                                  AromaR                      OPTIONS     POST
 
