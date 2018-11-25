@@ -62,7 +62,6 @@ Tasting         json
     beerDegrees     Double Maybe
     rating          Int
     beer            BeerId
-    usr             UsrId
     deriving Show
 
 Has             json

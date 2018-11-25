@@ -22,7 +22,7 @@ curl -X POST localhost:8080/flavor -d '{"name" : "adocicada"}' -H "accept: appli
 
 curl -X POST localhost:8080/beer -d '{"name" : "Cerveja Colorado Appia", "brewery" : "colorado", "price" : 11.90, "countryOrigin" : 1, "abv" : 5.5, "ibu" : 10.0,"color" : 1, "packing" : 1, "style" : 1, "aroma" : 1, "beerHead" : "","flavor" : 1}' -H "accept: application/json"
 
-curl -X POST localhost:8080/tasting -d '{"location" : 1, "notes" : "cerveja muito boa", "beerDegrees" : -11.5, "rating" : "5", "beer" : 1, "usr" : 1}'
+curl -X POST localhost:8080/tasting -d '{"location" : 1, "notes" : "cerveja muito boa", "beerDegrees" : -11.5, "rating" : "5", "beer" : 1}'
 
 /static StaticR Static  appStatic
 
