@@ -6,6 +6,7 @@ module Handler.Tasting where
 
 import Import
 import Handler.Funcs as F
+import Database.Persist.Postgresql
 
 -- OPTIONS --
 
@@ -24,13 +25,13 @@ postTastingR :: Handler Value
 postTastingR = do
     anyOriginIn [ F.OPTIONS, F.POST ]
     token       <- getTokenHeader
-    maybeUsr   <- runDB $ selectFirst [UsrToken ==. token] []
+    maybeUsr    <- runDB $ selectFirst [UsrToken ==. token] []
     case maybeUsr of
         Just (Entity uid usr) -> do
             tasting <-  requireJsonBody :: Handler Tasting
             tid     <-  runDB $ insert tasting
-            pid     <-  runDB $ insert (Has Nothing uid tid)
-            sendStatusJSON created201 $ object ["resp" .= tid]
+            pid     <-  runDB $ insert (Has uid tid)
+            sendStatusJSON created201 $ object ["id" .= fromSqlKey tid]
         _ -> sendStatusJSON forbidden403 $ object ["resp" .= ("acao proibida"::Text)]
 
 getTastingByUserR :: Handler Value

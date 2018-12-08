@@ -65,7 +65,6 @@ Tasting         json
     deriving Show
 
 Has             json
-    emailtaste  Text Maybe
     usrId       UsrId
     tastingId   TastingId
     deriving Show
