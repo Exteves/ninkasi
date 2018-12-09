@@ -9,8 +9,7 @@
 /beer/flavor/#FlavorId                  BeerByFlavorIdR             OPTIONS     GET
 /beer/color/#ColorId                    BeerByColorIdR              OPTIONS     GET
 
-/tasting                                TastingR                    OPTIONS     POST
-/tasting/user                           TastingByUserR              OPTIONS     GET
+/tasting                                TastingR                    OPTIONS     POST    GET
 /tasting/beer/#BeerId                   TastingByBeerIdR            OPTIONS     GET
 
 /style                                  StyleR                      OPTIONS     POST    GET

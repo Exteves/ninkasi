@@ -34,8 +34,8 @@ postTastingR = do
             sendStatusJSON created201 $ object ["id" .= fromSqlKey tid]
         _ -> sendStatusJSON forbidden403 $ object ["resp" .= ("acao proibida"::Text)]
 
-getTastingByUserR :: Handler Value
-getTastingByUserR = do
+getTastingR :: Handler Value
+getTastingR = do
     anyOriginIn [ F.OPTIONS, F.GET ]
     token       <- getTokenHeader
     maybeUsr    <- runDB $ selectFirst [ UsrToken ==. token ] [ ]
