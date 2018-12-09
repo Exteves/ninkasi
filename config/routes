@@ -15,7 +15,7 @@
 
 /style                                  StyleR                      OPTIONS     POST
 
-/flavor                                 FlavorR                     OPTIONS     POST
+/flavor                                 FlavorR                     OPTIONS     POST    GET
 
 /color                                  ColorR                      OPTIONS     POST    GET
 
