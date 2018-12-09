@@ -17,7 +17,7 @@
 
 /flavor                                 FlavorR                     OPTIONS     POST
 
-/color                                  ColorR                      OPTIONS     POST
+/color                                  ColorR                      OPTIONS     POST    GET
 
 /aroma                                  AromaR                      OPTIONS     POST    GET
 
