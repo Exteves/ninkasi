@@ -23,7 +23,7 @@
 
 /packing                                PackingR                    OPTIONS     POST
 
-/country                                CountryR                    OPTIONS     POST
+/country                                CountryR                    OPTIONS     POST    GET
 
 /login                                  LoginnR                     OPTIONS     POST
 
