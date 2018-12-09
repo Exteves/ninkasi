@@ -13,7 +13,7 @@
 /tasting/user                           TastingByUserR              OPTIONS     GET
 /tasting/beer/#BeerId                   TastingByBeerIdR            OPTIONS     GET
 
-/style                                  StyleR                      OPTIONS     POST
+/style                                  StyleR                      OPTIONS     POST    GET
 
 /flavor                                 FlavorR                     OPTIONS     POST    GET
 
