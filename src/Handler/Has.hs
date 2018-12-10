@@ -27,3 +27,4 @@ postHasR tastingid = do
             pss <- runDB $ replace (entityKey (M.fromJust has)) (Has uid tastingid)
             sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]
         _ -> sendStatusJSON forbidden403 $ object ["resp" .= ("acao proibida"::Text) ]
+

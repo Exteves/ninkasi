@@ -47,7 +47,10 @@ getBeerR :: Handler Value
 getBeerR = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     beerList    <-  runDB $ selectList [] [Asc BeerName]
-    sendStatusJSON ok200 $ object [ "resp" .= (map entityVal beerList) ]
+    sendStatusJSON ok200 $ object [ "resp" .= beerList ]
+
+    -- RESP WITHOUT ID EXAMPLE
+    -- sendStatusJSON ok200 $ object [ "resp" .= (map entityVal beerList) ]
 
 getBeerByNameR :: Text -> Handler Value
 getBeerByNameR beerName = do
