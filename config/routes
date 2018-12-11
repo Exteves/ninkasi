@@ -25,6 +25,7 @@
 /aroma/#AromaId                         AromaByIdR                  OPTIONS     GET
 
 /packing                                PackingR                    OPTIONS     POST    GET
+/packing/#PackingId                     PackingByIdR                OPTIONS     GET
 
 /country                                CountryR                    OPTIONS     POST    GET
 /country/#CountryId                     CountryByIdR                OPTIONS     GET
