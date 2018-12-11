@@ -32,6 +32,9 @@ optionsBeerByFlavorIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
 optionsBeerByColorIdR :: ColorId -> Handler ()
 optionsBeerByColorIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
 
+optionsBeerByIdR :: BeerId -> Handler ()
+optionsBeerByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+
 -- POST --
 
 postBeerR :: Handler Value
@@ -100,3 +103,10 @@ getBeerByColorIdR colorid = do
     beerList    <- runDB $ selectList [ BeerColor ==. colorid ] []
     beerListM   <- return $ map entityKey beerList
     sendStatusJSON ok200 $ object [ "resp" .= beerListM ]
+
+getBeerByIdR :: BeerId -> Handler Value
+getBeerByIdR beerId = do
+    F.anyOriginIn [ F.OPTIONS, F.GET ]
+    beer   <-  runDB $ get404 beerId
+    sendStatusJSON ok200 $ object [ "resp" .= beer ]
+    

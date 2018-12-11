@@ -8,6 +8,7 @@
 /beer/aroma/#AromaId                    BeerByAromaIdR              OPTIONS     GET
 /beer/flavor/#FlavorId                  BeerByFlavorIdR             OPTIONS     GET
 /beer/color/#ColorId                    BeerByColorIdR              OPTIONS     GET
+/beer/#BeerId                           BeerByIdR                   OPTIONS     GET
 
 /tasting                                TastingR                    OPTIONS     POST    GET
 /tasting/beer/#BeerId                   TastingByBeerIdR            OPTIONS     GET
@@ -19,7 +20,7 @@
 /color                                  ColorR                      OPTIONS     POST    GET
 
 /aroma                                  AromaR                      OPTIONS     POST    GET
-/aroma/#AromaId                         AromaById                   OPTIONS     GET
+/aroma/#AromaId                         AromaByIdR                  OPTIONS     GET
 
 /packing                                PackingR                    OPTIONS     POST    GET
 
