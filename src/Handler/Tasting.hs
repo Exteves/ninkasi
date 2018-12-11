@@ -19,6 +19,9 @@ optionsTastingByUserR = F.anyOriginIn [ F.OPTIONS, F.GET ]
 optionsTastingByBeerIdR :: BeerId -> Handler ()
 optionsTastingByBeerIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
 
+optionsTastingByIdR :: TastingId -> Handler ()
+optionsTastingByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+
 -- POST --
 
 postTastingR :: Handler Value
@@ -54,3 +57,9 @@ getTastingByBeerIdR beerid = do
     tastingList     <- runDB $ selectList [ TastingBeer ==. beerid ] []
     tastingListM    <- return $ map entityKey tastingList
     sendStatusJSON ok200 $ object [ "resp" .= tastingListM ]
+
+getTastingByIdR :: TastingId -> Handler Value
+getTastingByIdR tastingId = do
+    F.anyOriginIn [ F.OPTIONS, F.GET ]
+    tasting   <-  runDB $ get404 tastingId
+    sendStatusJSON ok200 $ object [ "resp" .= tasting ]    
