@@ -19,6 +19,7 @@
 /color                                  ColorR                      OPTIONS     POST    GET
 
 /aroma                                  AromaR                      OPTIONS     POST    GET
+/aroma/#AromaId                         AromaById                   OPTIONS     GET
 
 /packing                                PackingR                    OPTIONS     POST    GET
 

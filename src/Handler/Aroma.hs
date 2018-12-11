@@ -13,6 +13,9 @@ import Handler.Funcs as F
 optionsAromaR :: Handler ()
 optionsAromaR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 
+optionsAromaById :: AromaId -> Handler ()
+optionsAromaById _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+
 -- POST --
 
 postAromaR :: Handler Value
@@ -27,3 +30,10 @@ getAromaR = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     smells   <-  runDB $ selectList [] [ Asc AromaName ]
     sendStatusJSON ok200 $ object [ "resp" .= smells ]
+
+getAromaById :: AromaId -> Handler Value
+getAromaById aromaId = do
+    F.anyOriginIn [ F.OPTIONS, F.GET ]
+    aroma   <-  runDB $ get404 aromaId
+    sendStatusJSON ok200 $ object [ "resp" .= aroma ]
+
