@@ -11,6 +11,9 @@ import Handler.Funcs as F
 optionsColorR :: Handler ()
 optionsColorR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 
+optionsColorByIdR :: ColorId -> Handler ()
+optionsColorByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+
 -- POST --
 
 postColorR :: Handler Value
@@ -25,3 +28,9 @@ getColorR = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     colors   <-  runDB $ selectList [] [ Asc ColorName ]
     sendStatusJSON ok200 $ object [ "resp" .= colors ]
+
+getColorByIdR :: ColorId -> Handler Value
+getColorByIdR colorId = do
+    F.anyOriginIn [ F.OPTIONS, F.GET ]
+    color   <-  runDB $ get404 colorId
+    sendStatusJSON ok200 $ object [ "resp" .= color ]

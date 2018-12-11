@@ -18,6 +18,7 @@
 /flavor                                 FlavorR                     OPTIONS     POST    GET
 
 /color                                  ColorR                      OPTIONS     POST    GET
+/color/#ColorId                         ColorByIdR                  OPTIONS     GET
 
 /aroma                                  AromaR                      OPTIONS     POST    GET
 /aroma/#AromaId                         AromaByIdR                  OPTIONS     GET
