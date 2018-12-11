@@ -26,6 +26,7 @@
 /packing                                PackingR                    OPTIONS     POST    GET
 
 /country                                CountryR                    OPTIONS     POST    GET
+/country/#CountryId                     CountryByIdR                OPTIONS     GET
 
 /login                                  LoginnR                     OPTIONS     POST
 
