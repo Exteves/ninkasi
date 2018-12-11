@@ -16,6 +16,7 @@
 /style                                  StyleR                      OPTIONS     POST    GET
 
 /flavor                                 FlavorR                     OPTIONS     POST    GET
+/flavor/#FlavorId                       FlavorByIdR                 OPTIONS     GET
 
 /color                                  ColorR                      OPTIONS     POST    GET
 /color/#ColorId                         ColorByIdR                  OPTIONS     GET
