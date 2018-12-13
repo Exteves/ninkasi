@@ -14,7 +14,7 @@ optionsAromaR :: Handler ()
 optionsAromaR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 
 optionsAromaByIdR :: AromaId -> Handler ()
-optionsAromaByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+optionsAromaByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET, F.DELETE ]
 
 -- POST --
 
@@ -37,3 +37,8 @@ getAromaByIdR aromaId = do
     aroma   <-  runDB $ get404 aromaId
     sendStatusJSON ok200 $ object [ "resp" .= aroma ]
 
+deleteAromaByIdR :: AromaId -> Handler Value
+deleteAromaByIdR aromaId = do
+    F.anyOriginIn [ F.OPTIONS, F.DELETE ]
+    runDB $ delete aromaId
+    sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]

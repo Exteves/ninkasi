@@ -33,7 +33,7 @@ optionsBeerByColorIdR :: ColorId -> Handler ()
 optionsBeerByColorIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
 
 optionsBeerByIdR :: BeerId -> Handler ()
-optionsBeerByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+optionsBeerByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET, F.DELETE ]
 
 -- POST --
 
@@ -109,4 +109,10 @@ getBeerByIdR beerId = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     beer   <-  runDB $ get404 beerId
     sendStatusJSON ok200 $ object [ "resp" .= beer ]
+
+deleteBeerByIdR :: BeerId -> Handler Value
+deleteBeerByIdR beerId = do
+    F.anyOriginIn [ F.OPTIONS, F.DELETE ]
+    runDB $ delete beerId
+    sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]
     

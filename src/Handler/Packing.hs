@@ -12,7 +12,7 @@ optionsPackingR :: Handler ()
 optionsPackingR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 
 optionsPackingByIdR :: PackingId -> Handler ()
-optionsPackingByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+optionsPackingByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET, F.DELETE ]
 
 -- POST --
 
@@ -34,3 +34,9 @@ getPackingByIdR packingId = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     packing   <-  runDB $ get404 packingId
     sendStatusJSON ok200 $ object [ "resp" .= packing ]
+
+deletePackingByIdR :: PackingId -> Handler Value
+deletePackingByIdR packingId = do
+    F.anyOriginIn [ F.OPTIONS, F.DELETE ]
+    runDB $ delete packingId
+    sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]

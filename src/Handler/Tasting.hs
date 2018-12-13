@@ -20,7 +20,7 @@ optionsTastingByBeerIdR :: BeerId -> Handler ()
 optionsTastingByBeerIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
 
 optionsTastingByIdR :: TastingId -> Handler ()
-optionsTastingByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+optionsTastingByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET, F.DELETE ]
 
 -- POST --
 
@@ -62,4 +62,10 @@ getTastingByIdR :: TastingId -> Handler Value
 getTastingByIdR tastingId = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     tasting   <-  runDB $ get404 tastingId
-    sendStatusJSON ok200 $ object [ "resp" .= tasting ]    
+    sendStatusJSON ok200 $ object [ "resp" .= tasting ]
+
+deleteTastingByIdR :: TastingId -> Handler Value
+deleteTastingByIdR tastingId = do
+    F.anyOriginIn [ F.OPTIONS, F.DELETE ]
+    runDB $ delete tastingId
+    sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]

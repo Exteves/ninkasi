@@ -12,7 +12,7 @@ optionsFlavorR :: Handler ()
 optionsFlavorR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 
 optionsFlavorByIdR :: FlavorId -> Handler ()
-optionsFlavorByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+optionsFlavorByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET, F.DELETE ]
 
 -- POST --
 
@@ -34,4 +34,10 @@ getFlavorByIdR flavorId = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     flavor   <-  runDB $ get404 flavorId
     sendStatusJSON ok200 $ object [ "resp" .= flavor ]
+
+deleteFlavorByIdR :: FlavorId -> Handler Value
+deleteFlavorByIdR flavorId = do
+    F.anyOriginIn [ F.OPTIONS, F.DELETE ]
+    runDB $ delete flavorId
+    sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]
 

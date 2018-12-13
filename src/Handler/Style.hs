@@ -12,7 +12,7 @@ optionsStyleR :: Handler ()
 optionsStyleR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 
 optionsStyleByIdR :: StyleId -> Handler ()
-optionsStyleByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+optionsStyleByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET, F.DELETE ]
 
 -- POST --
 
@@ -35,4 +35,8 @@ getStyleByIdR styleId = do
     style   <-  runDB $ get404 styleId
     sendStatusJSON ok200 $ object [ "resp" .= style ]
 
-
+deleteStyleByIdR :: StyleId -> Handler Value
+deleteStyleByIdR styleId = do
+    F.anyOriginIn [ F.OPTIONS, F.DELETE ]
+    runDB $ delete styleId
+    sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]

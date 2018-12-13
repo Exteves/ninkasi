@@ -12,7 +12,7 @@ optionsColorR :: Handler ()
 optionsColorR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 
 optionsColorByIdR :: ColorId -> Handler ()
-optionsColorByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+optionsColorByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET, F.DELETE ]
 
 -- POST --
 
@@ -34,3 +34,9 @@ getColorByIdR colorId = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     color   <-  runDB $ get404 colorId
     sendStatusJSON ok200 $ object [ "resp" .= color ]
+
+deleteColorByIdR :: ColorId -> Handler Value
+deleteColorByIdR colorId = do
+    F.anyOriginIn [ F.OPTIONS, F.DELETE ]
+    runDB $ delete colorId
+    sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]

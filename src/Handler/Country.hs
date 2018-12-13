@@ -12,7 +12,7 @@ optionsCountryR :: Handler ()
 optionsCountryR = F.anyOriginIn [ F.OPTIONS, F.POST, F.GET ]
 
 optionsCountryByIdR :: CountryId -> Handler ()
-optionsCountryByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET ]
+optionsCountryByIdR _ = F.anyOriginIn [ F.OPTIONS, F.GET, F.DELETE ]
 
 -- POST --
 
@@ -34,3 +34,9 @@ getCountryByIdR countryId = do
     F.anyOriginIn [ F.OPTIONS, F.GET ]
     country   <-  runDB $ get404 countryId
     sendStatusJSON ok200 $ object [ "resp" .= country ]
+
+deleteCountryByIdR :: CountryId -> Handler Value
+deleteCountryByIdR countryId = do
+    F.anyOriginIn [ F.OPTIONS, F.DELETE ]
+    runDB $ delete countryId
+    sendStatusJSON ok200 $ object ["resp" .= ("ok"::Text)]

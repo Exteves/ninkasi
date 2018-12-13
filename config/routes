@@ -8,29 +8,29 @@
 /beer/aroma/#AromaId                    BeerByAromaIdR              OPTIONS     GET
 /beer/flavor/#FlavorId                  BeerByFlavorIdR             OPTIONS     GET
 /beer/color/#ColorId                    BeerByColorIdR              OPTIONS     GET
-/beer/#BeerId                           BeerByIdR                   OPTIONS     GET
+/beer/#BeerId                           BeerByIdR                   OPTIONS     GET     DELETE
 
 /tasting                                TastingR                    OPTIONS     POST    GET
 /tasting/beer/#BeerId                   TastingByBeerIdR            OPTIONS     GET
-/tasting/#TastingId                     TastingByIdR                OPTIONS     GET
+/tasting/#TastingId                     TastingByIdR                OPTIONS     GET     DELETE
 
 /style                                  StyleR                      OPTIONS     POST    GET
-/style/#StyleId                         StyleByIdR                  OPTIONS     GET
+/style/#StyleId                         StyleByIdR                  OPTIONS     GET     DELETE
 
 /flavor                                 FlavorR                     OPTIONS     POST    GET
-/flavor/#FlavorId                       FlavorByIdR                 OPTIONS     GET
+/flavor/#FlavorId                       FlavorByIdR                 OPTIONS     GET     DELETE
 
 /color                                  ColorR                      OPTIONS     POST    GET
-/color/#ColorId                         ColorByIdR                  OPTIONS     GET
+/color/#ColorId                         ColorByIdR                  OPTIONS     GET     DELETE
 
 /aroma                                  AromaR                      OPTIONS     POST    GET
-/aroma/#AromaId                         AromaByIdR                  OPTIONS     GET
+/aroma/#AromaId                         AromaByIdR                  OPTIONS     GET     DELETE
 
 /packing                                PackingR                    OPTIONS     POST    GET
-/packing/#PackingId                     PackingByIdR                OPTIONS     GET
+/packing/#PackingId                     PackingByIdR                OPTIONS     GET     DELETE
 
 /country                                CountryR                    OPTIONS     POST    GET
-/country/#CountryId                     CountryByIdR                OPTIONS     GET
+/country/#CountryId                     CountryByIdR                OPTIONS     GET     DELETE
 
 /login                                  LoginnR                     OPTIONS     POST
 
